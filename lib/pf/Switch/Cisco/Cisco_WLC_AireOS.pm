@@ -1,9 +1,9 @@
-package pf::Switch::Cisco::WLC;
+package pf::Switch::Cisco::Cisco_WLC_AireOS;
 
 =head1 NAME
 
-pf::Switch::Cisco::WLC - Object oriented module to parse SNMP traps and manage
-Cisco Wireless Controllers (WLC) and Wireless Service Modules (WiSM)
+pf::Switch::Cisco::Cisco_WLC_AireOS - Object oriented module to parse SNMP traps and manage
+Cisco WLC (AireOS) and Wireless Service Modules (WiSM)
 
 =head1 STATUS
 
@@ -123,7 +123,7 @@ use pf::security_event qw(security_event_count_reevaluate_access);
 use pf::radius::constants;
 use pf::locationlog qw(locationlog_get_session);
 
-sub description { 'Cisco Wireless Controller (WLC)' }
+sub description { 'Cisco WLC (AireOS)' }
 
 =head1 SUBROUTINES
 
