@@ -60,24 +60,32 @@ sub returnRadiusAccessAccept {
 
 sub find_user_by_psk {
     my ($self, $radius_request, $args) = @_;
+    my @parts = split(":", $radius_request->{"Called-Station-Id"});
+    my $ssid = pop @parts;
+    my $bssid = join("", @parts);
+    $bssid =~ s/-//g;
+    my $cache = $self->cache;
+    if (exists $args->{'owner'} && $args->{'owner'}->{'pid'} ne "" ) {
+        if(check_if_radius_request_psk_matches($cache, $radius_request, $args->{'owner'}->{'psk'}, $ssid, $bssid)) {
+            get_logger->info("PSK matches the pid associated with the mac ".$args->{'owner'}->{'pid'});
+            return $args->{'owner'}->{'pid'};
+        }
+    }
+
     my ($status, $iter) = pf::dal::person->search(
         -where => {
             psk => {'!=' => [-and => '', undef]},
         },
+        -columns => [qw(pid psk)],
+        -no_default_join => 1,
     );
 
     my $matched = 0;
     my $pid;
     # Try first the pid of the mac address
-    if (exists $args->{'owner'} && $args->{'owner'}->{'pid'} ne "" ) {
-        if($self->check_if_radius_request_psk_matches($radius_request, $args->{'owner'}->{'psk'})) {
-            get_logger->info("PSK matches the pid associated with the mac ".$args->{'owner'}->{'pid'});
-            return $args->{'owner'}->{'pid'};
-        }
-    }
     while(my $person = $iter->next) {
         get_logger->debug("User ".$person->{pid}." has a PSK. Checking if it matches the one in the packet");
-        if($self->check_if_radius_request_psk_matches($radius_request, $person->{psk})) {
+        if(check_if_radius_request_psk_matches($cache, $radius_request, $person->{psk}, $ssid, $bssid)) {
             get_logger->info("PSK matches the one of ".$person->{pid});
             $pid = $person->{pid};
             last;
@@ -87,14 +95,9 @@ sub find_user_by_psk {
 }
 
 sub check_if_radius_request_psk_matches {
-    my ($self, $radius_request, $psk) = @_;
+    my ($cache, $radius_request, $psk, $ssid, $bssid) = @_;
 
-    my @parts = split(":", $radius_request->{"Called-Station-Id"});
-    my $ssid = pop @parts;
-    my $bssid = join("", @parts);
-    $bssid =~ s/-//g;
-
-    my $pmk = $self->cache->compute(
+    my $pmk = $cache->compute(
         "OpenWiFi::check_if_radius_request_psk_matches::PMK::$ssid+$psk", 
         "1 month",
         sub { pf::util::wpa::calculate_pmk($ssid, $psk) },
