@@ -346,31 +346,33 @@ sub generate_dpsk {
         get_logger->info("Using password of local user $username for PSK");
         if (person_modify($username,psk => $password->{password})) {
             return $password->{password};
-        } else {
-            return 0;
         }
+
+        return 0;
     }
-    elsif (ref($person) eq 'HASH' && defined $person->{psk} && $person->{psk} ne '') {
+
+    if (ref($person) eq 'HASH' && defined $person->{psk} && $person->{psk} ne '') {
         get_logger->debug("Returning psk key $person->{psk} for user $username");
         return $person->{psk};
     }
-    else {
-        my $retry = $FALSE;
-        while(!$retry) {
-            my $psk_size;
-            if ($self->psk_size >= 8) {
-                $psk_size = $self->psk_size;
-            } else {
-                $psk_size = 8;
-                get_logger->info("PSK key redefined to 8");
-            }
-            my $psk = word(8,$psk_size);
-            $retry = person_modify($username,psk => $psk);
+
+    my $retry = $FALSE;
+    my $psk;
+    while(!$retry) {
+        my $psk_size;
+        if ($self->psk_size >= 8) {
+            $psk_size = $self->psk_size;
+        } else {
+            $psk_size = 8;
+            get_logger->info("PSK key redefined to 8");
         }
-        get_logger->info("PSK key has been generated for user ".$username);
-        get_logger->debug("Returning psk key $psk for user $username");
-        return $psk;
+        $psk = word(8,$psk_size);
+        $retry = person_modify($username,psk => $psk);
     }
+
+    get_logger->info("PSK key has been generated for user ".$username);
+    get_logger->debug("Returning psk key $psk for user $username");
+    return $psk;
 }
 
 =head1 AUTHOR
