@@ -112,7 +112,6 @@ func makeRadiusRequests(h *PfAcct, requestFanOut, backlog int) []chan<- radiusRe
 			for rr := range c {
 				h.handleAccountingRequest(rr)
 			}
-			fmt.Println(len(c))
 		}(c)
 	}
 
