@@ -935,18 +935,22 @@ fi
 %attr(0755, pf, pf)     /usr/local/pf/bin/cluster/maintenance
 %attr(0755, pf, pf)     /usr/local/pf/bin/cluster/node
 %dir                    /usr/local/pf/bin/pyntlm_auth
-%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/app.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/config_generator.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/config_loader.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/constants.py
+%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/entrypoint.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/flags.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/global_vars.py
+%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/gunicorn.conf.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/handlers.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/ms_event.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/ncache.py
+%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/redis_client.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/rpc.py
-%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/t_api.py
+%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/t_async_job.py
+%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/t_health_checker.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/t_sdnotify.py
+%attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/t_worker_registry.py
 %attr(0755, pf, pf)     /usr/local/pf/bin/pyntlm_auth/utils.py
 %attr(0755, pf, pf)     /usr/local/pf/sbin/galera-autofix
 %attr(0755, pf, pf)     /usr/local/pf/sbin/mysql-probe
