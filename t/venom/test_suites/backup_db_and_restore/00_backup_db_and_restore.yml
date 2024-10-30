@@ -28,7 +28,9 @@ testcases:
 - name: get_backup_name
   steps:
   - type: exec
-    script: 'find {{.backup_db_and_restore.backup_dir}} -name "packetfence-exportable-backup-*.tgz" -newermt "-1 minute"'
+    script: 'find {{.backup_db_and_restore.backup_dir}} -name "packetfence-exportable-backup-*.tgz" -newermt "-10 minute"' | head -n 1
+    assertion:
+      - result.systemout ShouldNotBeEmpty
 
 - name: import
   steps:
