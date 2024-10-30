@@ -213,7 +213,6 @@ our @OWNER_FIELDS = qw(
   owner.source
   owner.nodes
   owner.otp
-  owner.password
   owner.potd
   owner.psk
   owner.valid_from
