@@ -28,8 +28,8 @@ testcases:
 - name: get_backup_name
   steps:
   - type: exec
-    script: 'find {{.backup_db_and_restore.backup_dir}} -name "packetfence-exportable-backup-*.tgz" -newermt "-10 minute"' | head -n 1
-    assertion:
+    script: 'find {{.backup_db_and_restore.backup_dir}} -name "packetfence-exportable-backup-*.tgz" -newermt "-10 minute" | head -n 1'
+    assertions:
       - result.systemout ShouldNotBeEmpty
 
 - name: import
