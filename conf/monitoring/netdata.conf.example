@@ -38,3 +38,7 @@
 	# listen backlog = 4096
 	default port = 8125
 	bind to = udp:[::1] udp:127.0.0.1 udp:containers-gateway.internal tcp:[::1] tcp:127.0.0.1 tcp:containers-gateway.internal
+
+[plugin:cgroups]
+	use unified cgroups = yes
+	path to unified cgroups = /host/sys/fs/cgroup
