@@ -6,13 +6,16 @@ jobs:
     url: http://%%management_ip%%:1025/metrics
     username: admin
     password: packetfence
+    autodetection_retry: 600
 
   - name: haproxy-db
     url: http://%%management_ip%%:1026/metrics
     username: admin
     password: packetfence
+    autodetection_retry: 600
 
   - name: haproxy-admin
     url: http://%%management_ip%%:1027/metrics
     username: admin
     password: packetfence
+    autodetection_retry: 600
