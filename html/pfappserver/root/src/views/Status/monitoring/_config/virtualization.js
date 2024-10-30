@@ -1,5 +1,5 @@
 import store from '@/store'
-import { modes, libraries } from '../_components/Chart'
+import { libraries } from '../_components/Chart'
 
 const chartFactory = (match, factory) => {
   return store.getters[`$_status/uniqueCharts`].reduce((defs, chart) => {
@@ -26,7 +26,6 @@ export default [
               {
                 title: 'CPU', // i18n defer
                 metric: `cgroup_${name}.cpu_limit`,
-                mode: modes.COMBINED,
                 library: libraries.DYGRAPH,
                 cols: 6,
                 params: {
@@ -36,14 +35,12 @@ export default [
               {
                 title: 'Memory', // i18n defer
                 metric: `cgroup_${name}.mem`,
-                mode: modes.COMBINED,
                 library: libraries.DYGRAPH,
                 cols: 6
               },
               {
                 title: 'Disk I/O', // i18n defer
                 metric: `cgroup_${name}.io`,
-                mode: modes.COMBINED,
                 library: libraries.DYGRAPH,
                 cols: 6
               },
@@ -55,18 +52,16 @@ export default [
                     {
                       title: `Network Bandwidth ${iface}`, // i18n defer
                       metric: `cgroup_${name}.net_${iface}`,
-                      mode: modes.COMBINED,
                       library: libraries.DYGRAPH,
                       cols: 6
                     }
-                  ].sort((a, b) => a.title.localeCompare(b.title))
+                  ]
                 }
               )
             ]
           },
         ]
       }
-    ).sort((a, b) => a.name.localeCompare(b.name)),
-
+    ).sort((a, b) => a.name.localeCompare(b.name))
   }
 ]

@@ -1,5 +1,5 @@
 import store from '@/store'
-import { modes, libraries } from '../_components/Chart'
+import { libraries } from '../_components/Chart'
 
 const groups = [
   'haproxy-admin',
@@ -36,28 +36,24 @@ export default [
           {
             title: 'Backend Current Sessions', // i18n defer
             metric: `haproxy_${group}.backend_current_sessions`,
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Backend Sessions', // i18n defer
             metric: `haproxy_${group}.backend_sessions`,
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Backend Response Time Average', // i18n defer
             metric: `haproxy_${group}.backend_response_time_average`,
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Backend Current Queue', // i18n defer
             metric: `haproxy_${group}.backend_current_queue`,
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
@@ -70,7 +66,6 @@ export default [
                   {
                     title: `HTTP Responses (${name})`, // i18n defer
                     metric: `haproxy_${group}.backend_http_responses_proxy_${name}`,
-                    mode: modes.COMBINED,
                     library: libraries.DYGRAPH,
                     cols: 6
                   }
@@ -85,7 +80,6 @@ export default [
                   {
                     title: `Network I/O (${name})`, // i18n defer
                     metric: `haproxy_${group}.backend_network_io_proxy_${name}`,
-                    mode: modes.COMBINED,
                     library: libraries.DYGRAPH,
                     cols: 6
                   }

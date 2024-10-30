@@ -24,9 +24,19 @@ const can = () => !store.getters['system/isSaas']
 
 export default [
   {
-    path: 'dashboard',
-    name: 'statusDashboard',
+    path: 'monitoring',
+    name: 'statusMonitoring',
     component: TheView,
+    beforeEnter,
+    meta: {
+      can
+    }
+  },
+  {
+    path: 'monitoring/:host',
+    name: 'statusMonitoringHost',
+    component: TheView,
+    props: (route) => ({ host: route.params.host }),
     beforeEnter,
     meta: {
       can

@@ -1,4 +1,4 @@
-import { modes, libraries } from '../_components/Chart'
+import { libraries } from '../_components/Chart'
 
 export default [
   {
@@ -10,28 +10,24 @@ export default [
           {
             title: 'API Bandwidth', // i18n defer
             metric: 'web_log_api-frontend.bandwidth',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'AAA Bandwidth', // i18n defer
             metric: 'web_log_httpd_aaa.bandwidth',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Captive Portal Bandwidth', // i18n defer
             metric: 'web_log_httpd_portal.bandwidth',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Web Services Bandwidth', // i18n defer
             metric: 'web_log_httpd_webservices.bandwidth',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           }
@@ -43,28 +39,24 @@ export default [
           {
             title: 'API Requests', // i18n defer
             metric: 'web_log_api-frontend.requests_by_http_method',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'AAA Requests', // i18n defer
             metric: 'web_log_httpd_aaa.requests_by_http_method',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Captive Portal Requests', // i18n defer
             metric: 'web_log_httpd_portal.requests_by_http_method',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Web Services Requests', // i18n defer
             metric: 'web_log_httpd_webservices.requests_by_http_method',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           }
@@ -76,7 +68,6 @@ export default [
           return {
             title: type,
             metric: 'web_log_api-frontend.' + type,
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: (type.match(/^responses_by_status_code_class/)) ? 12 : 4
           }
@@ -88,7 +79,6 @@ export default [
           return {
             title: type,
             metric: 'web_log_httpd_aaa.' + type,
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: (type.match(/^responses_by_status_code_class/)) ? 12 : 4
           }
@@ -100,7 +90,6 @@ export default [
           return {
             title: type,
             metric: 'web_log_httpd_portal.' + type,
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: (type.match(/^responses_by_status_code_class/)) ? 12 : 4
           }
@@ -112,7 +101,6 @@ export default [
           return {
             title: type,
             metric: 'web_log_httpd_webservices.' + type,
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: (type.match(/^responses_by_status_code_class/)) ? 12 : 4
           }

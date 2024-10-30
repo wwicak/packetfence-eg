@@ -1,17 +1,12 @@
 <template>
-  <span>
-    <div class="pf-counter-over-chart" v-if="counter">
-      <div :id="id" class="display-4" />
-    </div>
-    <div
-      :data-netdata="chart.metric"
-      :data-host="host"
-      :data-title="' '"
-      :data-chart-library="chart.library"
-      :data-height="chart.height"
-      v-bind="attrs"
-      role="application" />
-  </span>
+  <div
+    :data-netdata="chart.metric"
+    :data-host="host"
+    :data-title="' '"
+    :data-chart-library="chart.library"
+    :data-height="chart.height"
+    v-bind="attrs"
+    role="application" />
 </template>
 
 <script>
@@ -50,7 +45,6 @@ const props = {
 }
 
 import { computed, ref, toRefs, watch } from '@vue/composition-api'
-import i18n from '@/utils/locale'
 
 const setup = (props, context) => {
 
@@ -61,7 +55,6 @@ const setup = (props, context) => {
 
   const counter = ref(false)
   const chart = ref({
-    title: i18n.t('Untitled'),
     metric: null,
     library: libraries.DYGRPAH,
     height: '225px',

@@ -1,5 +1,5 @@
 import store from '@/store'
-import { modes, libraries } from '../_components/Chart'
+import { libraries } from '../_components/Chart'
 
 export default [
   {
@@ -14,7 +14,6 @@ export default [
               return {
                 title: `${source.description} - ping ${host}`,
                 metric: `fping.${host.replace(/\./g, '_')}_latency`,
-                mode: modes.LOCAL,
                 library: libraries.DYGRAPH,
                 cols: 6
               }
@@ -28,14 +27,12 @@ export default [
           {
             title: 'Successful RADIUS authentications in the last day', // i18n defer
             metric: 'statsd_source.packetfence.authentication.success_last_day_gauge',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Failed RADIUS authentications in the last day', // i18n defer
             metric: 'statsd_source.packetfence.authentication.failed_last_day_gauge',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           }
@@ -47,14 +44,12 @@ export default [
           {
             title: 'NTLM Auth API Bandwidth', // i18n defer
             metric: 'web_log_ntlm-auth-api.bandwidth',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'NTLM Auth API Requests', // i18n defer
             metric: 'web_log_ntlm-auth-api.requests_by_http_method',
-            mode: modes.LOCAL,
             library: libraries.DYGRAPH,
             cols: 6
           },
@@ -64,7 +59,6 @@ export default [
               return {
                 title: type,
                 metric: 'web_log_ntlm-auth-api.' + type,
-                mode: modes.COMBINED,
                 library: libraries.DYGRAPH,
                 cols: (type.match(/^responses_by_status_code_class/)) ? 12 : 4
               }

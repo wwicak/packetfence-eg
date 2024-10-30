@@ -1,4 +1,4 @@
-import { modes, libraries } from '../_components/Chart'
+import { libraries } from '../_components/Chart'
 
 export default [
   {
@@ -10,14 +10,12 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.packetfence_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Number of errors', // i18n defer
             metric: 'packetfence.logs.packetfence_error_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           }
@@ -29,14 +27,12 @@ export default [
           {
             title: 'Server events', // i18n defer
             metric: 'packetfence.logs.pfconnector_server_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Client events', // i18n defer
             metric: 'packetfence.logs.pfconnector_client_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           }
@@ -48,7 +44,6 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.httpd_apache',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
@@ -60,7 +55,6 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.pfdhcp_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
@@ -72,7 +66,6 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.load_balancer_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
@@ -84,7 +77,6 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.radius_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
@@ -96,7 +88,6 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.mariadb_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
@@ -108,7 +99,6 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.pfcron_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
@@ -120,7 +110,6 @@ export default [
           {
             title: 'Number of events', // i18n defer
             metric: 'packetfence.logs.fingerbank_log',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }

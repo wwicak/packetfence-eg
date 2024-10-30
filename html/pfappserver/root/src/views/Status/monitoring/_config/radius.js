@@ -1,4 +1,4 @@
-import { modes, libraries } from '../_components/Chart'
+import { libraries } from '../_components/Chart'
 
 export default [
   {
@@ -10,7 +10,6 @@ export default [
           {
             title: 'Auth Rest', // i18n defer
             metric: 'statsd_timer_pf__api__radius_rest_authorize.timing',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             params: {
               filter_graph: 'average'
@@ -20,7 +19,6 @@ export default [
           {
             title: 'Acct Rest', // i18n defer
             metric: 'statsd_timer_pf__api__radius_rest_accounting.timing',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             params: {
               filter_graph: 'average'
@@ -35,35 +33,30 @@ export default [
           {
             title: 'Load balancer auth', // i18n defer
             metric: 'freeradius_Freeradius_LoadBalancer.proxy-auth',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'Load balancer acct', // i18n defer
             metric: 'freeradius_Freeradius_LoadBalancer.proxy-acct',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'RADIUS auth', // i18n defer
             metric: 'freeradius_Freeradius_Auth.authentication',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'RADIUS acct', // i18n defer
             metric: 'freeradius_Freeradius_Acct.accounting',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 6
           },
           {
             title: 'RADIUS pfacct', // i18n defer
             metric: 'statsd_timer_pfacct.handleaccountingrequest',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             params: {
               filter_graph: 'events',
@@ -79,7 +72,6 @@ export default [
           {
             title: 'NTLM latency', // i18n defer
             metric: 'statsd_timer_ntlm_auth.time',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             params: {
               filter_graph: 'average'
@@ -89,7 +81,6 @@ export default [
           {
             title: 'NTLM failures', // i18n defer
             metric: 'statsd_counter_ntlm_auth.failures',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             params: {
               filter_graph: 'counter'

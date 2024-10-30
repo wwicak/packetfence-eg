@@ -1,4 +1,4 @@
-import { modes, libraries } from '../_components/Chart'
+import { libraries } from '../_components/Chart'
 
 export default [
   {
@@ -10,7 +10,6 @@ export default [
           {
             title: 'Numbers of ip addresses assigned', // i18n defer
             metric: 'packetfence.dhcp.used_leases',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
@@ -22,7 +21,6 @@ export default [
           {
             title: 'Percent of ip addresses used', // i18n defer
             metric: 'packetfence.dhcp.percent_used_leases',
-            mode: modes.COMBINED,
             library: libraries.DYGRAPH,
             cols: 12
           }
