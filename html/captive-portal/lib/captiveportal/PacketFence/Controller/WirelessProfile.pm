@@ -42,6 +42,9 @@ sub index : Path : Args(0) {
     my $profile_template = $provisioner->profile_template;
     my $psk;
     if (isenabled($provisioner->dpsk)) {
+        if (!$psk) {
+                $psk = "Error generating the PSK, contact the administrator";
+        }
         $psk = $provisioner->generate_dpsk($c->session->{username});
     } else {
         $psk = $provisioner->passcode;

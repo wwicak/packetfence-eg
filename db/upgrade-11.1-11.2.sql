@@ -126,6 +126,9 @@ DROP PROCEDURE IF EXISTS `process_bandwidth_accounting_netflow`;
 DROP PROCEDURE IF EXISTS `bandwidth_accounting_radius_to_history`;
 DROP PROCEDURE IF EXISTS `bandwidth_aggregation_history`;
 
+\! echo "Make psk unique";
+ALTER TABLE person ADD CONSTRAINT UNIQUE person_psk (`psk`);
+
 \! echo "Incrementing PacketFence schema version...";
 INSERT IGNORE INTO pf_version (id, version, created_at) VALUES (@VERSION_INT, CONCAT_WS('.', @MAJOR_VERSION, @MINOR_VERSION), NOW());
 
