@@ -20,6 +20,11 @@ testcases:
       assertions:
         - result.statuscode ShouldEqual 201
 
+- name: remove PUBLIC user from mysql.user
+  steps:
+  - type: exec
+    script: "mysql -e'DELETE FROM mysql.user WHERE User=\"PUBLIC\"';"
+
 - name: create exportable backup
   steps:
   - type: exec
