@@ -4343,7 +4343,7 @@ sub generateAnsibleConfiguration {
 
     return if ($self->{_id} =~ /.*\/.*/ or $self->{_id} =~ /.*\:.*/ or $self->{_id} eq 'default' or $self->{_id} eq '100.64.0.1' or $self->{_id} eq '127.0.0.1');
     my $switch_id = $self->{_id};
-    return unless (defined($self->{'_cliUser'}) && isenabled($self->{'_UsePushACLs'}));
+    return unless ((defined($self->{'_cliUser'}) || defined($self->{'_wsUser'})) && isenabled($self->{'_UsePushACLs'}));
 
     my $switch_ip = $switch_id;
     $switch_id =~ s/\./_/g;
@@ -4363,6 +4363,7 @@ sub generateAnsibleConfiguration {
     $vars{'switches'}{$switch_id}{'cliPwd'} = $self->{'_cliPwd'};
     $vars{'switches'}{$switch_id}{'type'} = $self->{'_type'};
     $vars{'switches'}{$switch_id}{'id'} = $switch_ip;
+    $vars{'switches'}{$switch_id}{'wsPwd'} = $self->{'_wsPwd'};
     $vars{'switches'}{$switch_id}{'delete'} = $delete;
     switch($self->{'_type'}) {
             case /Cisco::ASA/ { $vars{'switches'}{$switch_id}{'ansible_network_os'} = "cisco.asa" }

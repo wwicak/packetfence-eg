@@ -15,7 +15,8 @@ RUN apt update && apt install -y gcc g++ make git mariadb-client python3 pip pyt
 RUN VER=`python3 -c 'import sys; val=sys.version_info;print(str(val.major)+"."+str(val.minor))'` ; \
     rm -rf /usr/lib/python$VER/EXTERNALLY-MANAGED && \
     pip3 install --upgrade pip cffi &&\
-    pip3 install ansible && pip3 install ansible-pylibssh
+    pip3 install ansible && pip3 install ansible-pylibssh && \
+    pip3 install meraki
 
 RUN adduser --disabled-password -u 1002 --gecos 0 semaphore && \
     mkdir -p /go/src/github.com/ansible-semaphore/semaphore && \

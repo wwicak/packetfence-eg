@@ -15,6 +15,11 @@ use pf::Switch::constants;
 
 use base ('pf::Switch');
 
+use pf::SwitchSupports qw(
+    PushACLs
+    AccessListBasedEnforcement
+);
+
 =head1 AUTHOR
 
 Inverse inc. <info@inverse.ca>
