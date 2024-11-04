@@ -38,7 +38,7 @@ generate_material() {
     make -C ${PF_SRC_DIR} configurations
     make -C ${PF_SRC_DIR} conf/unified_api_system_pass
     make -C ${PF_SRC_DIR} conf/local_secret
-    mkdir -P ${PF_SRC_DIR}/result
+    mkdir -p ${PF_SRC_DIR}/result
 
     echo "Starting ${CONTAINER_NAME} container"
     docker run --detach --name=${CONTAINER_NAME} --rm -e PFCONFIG_PROTO=unix \
