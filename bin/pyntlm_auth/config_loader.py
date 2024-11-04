@@ -248,6 +248,7 @@ def config_load():
     print(f"  max_allowed_password_attempts_per_device             : {max_allowed_attempts_per_device}")
 
     global_vars.c_server_name = ad_fqdn
+    global_vars.c_ad_server = ad_server
     global_vars.c_realm = realm
     global_vars.c_workgroup = workgroup
     global_vars.c_username = username

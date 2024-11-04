@@ -39,6 +39,7 @@ c_password = None
 c_domain = None
 c_username = None
 c_server_name = None
+c_ad_server = None
 c_listen_port = None
 c_domain_identifier = None
 c_dns_servers = None
