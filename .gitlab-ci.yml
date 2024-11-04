@@ -1153,14 +1153,14 @@ build_artifacts_website_release:
     - .release_only_rules
 
 # build_artificats_material job for development
-material_devel_and_branches:
+build_artifacts_material_devel_and_branches:
   image: ${PFBUILD_DEB_IMG}:${PFBUILD_DEFAULT_DEV_TAG}
   extends:
     - .build_artifacts_material_job
     - .build_artifacts_material_devel_and_branches_rules
 
 # build_artificats_material job for release
-material_release:
+build_artifacts_material_release:
   image: ${PFBUILD_DEB_IMG}:${CI_COMMIT_TAG}
   extends:
     - .build_artifacts_material_job
