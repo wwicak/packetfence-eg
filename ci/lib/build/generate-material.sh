@@ -59,8 +59,8 @@ generate_material() {
     echo "Generating material.html file"
     docker exec ${CONTAINER_NAME} /usr/bin/make material
 
-    echo "Publishing material.html to git if necessary"
-    docker exec ${CONTAINER_NAME} /usr/local/pf/ci/lib/release/publish-to-git.sh ${SRC_FILE} ${DST_FILE}
+    #echo "Publishing material.html to git if necessary"
+    #docker exec ${CONTAINER_NAME} /usr/local/pf/ci/lib/release/publish-to-git.sh ${SRC_FILE} ${DST_FILE}
 }
 
 cleanup() {

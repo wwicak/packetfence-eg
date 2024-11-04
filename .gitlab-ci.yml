@@ -389,6 +389,10 @@ variables:
     DST_FILE: layouts/partials/about/material.html
   script:
     - ${BUILDDIR}/generate-material.sh
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - result/material.html
   tags:
     - shell
 
