@@ -198,7 +198,7 @@ sub create {
                 push(@real_computer_names, "$real_computer_name-$i");
             }
         }
-        for (my $i = 0; $i < @real_computer_names[]; $i++) {
+        for (my $i = 0; $i < @real_computer_names; $i++) {
             $real_computer_name = $real_computer_names[$i];
 
             my ($add_status, $add_result) = pf::domain::add_computer(" ", $real_computer_name, $computer_password, $ad_server_ip, $ad_server_host, $dns_name, $workgroup, $ou, $bind_dn, $bind_pass);
@@ -316,7 +316,7 @@ sub update {
             push(@real_computer_names, "$real_computer_name-$i");
         }
     }
-    for (my $i = 0; $i < @real_computer_names[]; $i++) {
+    for (my $i = 0; $i < @real_computer_names; $i++) {
         $real_computer_name = $real_computer_names[$i];
         if (!is_nt_hash_pattern($new_data->{machine_account_password}) && ($new_data->{machine_account_password} ne $old_item->{machine_account_password})) {
             my ($add_status, $add_result) = pf::domain::add_computer("-delete", $real_computer_name, $computer_password, $ad_server_ip, $ad_server_host, $dns_name, $workgroup, $ou, $bind_dn, $bind_pass);
