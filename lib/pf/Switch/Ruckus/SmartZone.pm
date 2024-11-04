@@ -342,7 +342,7 @@ sub find_user_by_psk {
     my $eapol_key_frame = pack("H*", pf::util::wpa::strip_hex_prefix($radius_request->{"Ruckus-DPSK-EAPOL-Key-Frame"}));
     my $cache = $self->cache;
     # Try first the pid of the mac address
-    if (exists $args->{'owner'} && $args->{'owner'}->{'pid'} ne "" ) {
+    if (exists $args->{'owner'} && $args->{'owner'}->{'pid'} ne "" && exists $args->{'owner'}->{'psk'} && defined $args->{'owner'}->{'psk'}) {
         if (check_if_radius_request_psk_matches($cache, $radius_request, $args->{'owner'}->{'psk'}, $ssid, $bssid, $username, $anonce, $snonce, $eapol_key_frame)) {
             get_logger->info("PSK matches the pid associated with the mac ".$args->{'owner'}->{'pid'});
             return $args->{'owner'}->{'pid'};
