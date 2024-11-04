@@ -38,6 +38,7 @@ generate_material() {
     make -C ${PF_SRC_DIR} configurations
     make -C ${PF_SRC_DIR} conf/unified_api_system_pass
     make -C ${PF_SRC_DIR} conf/local_secret
+    mkdir -P ${PF_SRC_DIR}/result
 
     echo "Starting ${CONTAINER_NAME} container"
     docker run --detach --name=${CONTAINER_NAME} --rm -e PFCONFIG_PROTO=unix \
@@ -51,6 +52,7 @@ generate_material() {
            -v ${PF_SRC_DIR}/ci/lib:/usr/local/pf/ci/lib \
            -v ${PF_SRC_DIR}/config.mk:/usr/local/pf/config.mk \
            -v ${PF_SRC_DIR}/Makefile:/usr/local/pf/Makefile \
+           -v ${PF_SRC_DIR}/result:/usr/local/pf/result \
            ghcr.io/inverse-inc/packetfence/pfconfig:${IMAGE_TAG}
 
     echo "Let some time to container to start"
