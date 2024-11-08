@@ -40,7 +40,7 @@ prepare_import() {
     ls -l | grep -v export.tgz
 
     main_splitter
-    files_dump=`ls packetfence-conf-*`
+    files_dump=`ls packetfence-conf-* || ls packetfence-files-*`
     echo "Found files dump '$files_dump'"
 
     echo "Extracting files dump"
