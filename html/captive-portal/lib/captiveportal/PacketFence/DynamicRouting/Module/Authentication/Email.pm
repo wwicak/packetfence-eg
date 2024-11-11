@@ -179,6 +179,7 @@ Set the source from the module
 
 sub _sub_build_source {
     my ($self) = @_;
+    my $logger = get_logger;
     my $found = $FALSE;
     if (defined $self->{source_id}) {
         $self->source(pf::authentication::getAuthenticationSource($self->{source_id}));
