@@ -65,7 +65,7 @@ sub find_user_by_psk {
     my $bssid = join("", @parts);
     $bssid =~ s/-//g;
     my $cache = $self->cache;
-    if (exists $args->{'owner'} && $args->{'owner'}->{'pid'} ne "" && exists $args->{'owner'}->{'psk'} && defined $args->{'owner'}->{'psk'}) {
+    if (exists $args->{'owner'} && $args->{'owner'}->{'pid'} ne "" && exists $args->{'owner'}->{'psk'} && defined $args->{'owner'}->{'psk'} && $args->{'owner'}->{'psk'} ne "") {
         if(check_if_radius_request_psk_matches($cache, $radius_request, $args->{'owner'}->{'psk'}, $ssid, $bssid)) {
             get_logger->info("PSK matches the pid associated with the mac ".$args->{'owner'}->{'pid'});
             return $args->{'owner'}->{'pid'};
