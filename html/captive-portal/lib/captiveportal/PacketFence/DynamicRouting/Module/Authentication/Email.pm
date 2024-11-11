@@ -18,7 +18,7 @@ has '+source' => (isa => 'pf::Authentication::Source::EmailSource');
 
 use pf::auth_log;
 use pf::config qw(%Config);
-use pf::constants qw($TRUE);
+use pf::constants qw($TRUE $FALSE);
 use pf::log;
 use pf::authentication;
 use pf::Authentication::constants;
@@ -169,6 +169,33 @@ sub auth_source_params_child {
     return {
         user_email => $self->app->session->{email},
     };
+}
+
+=head2 _sub_build_source
+
+Set the source from the module
+
+=cut
+
+sub _sub_build_source {
+    my ($self) = @_;
+    my $found = $FALSE;
+    if (defined $self->{source_id}) {
+        $self->source(pf::authentication::getAuthenticationSource($self->{source_id}));
+    } else {
+        if ($self->app->profile->{'_sources'} ne "") {
+            foreach my $src (@{$self->app->profile->{'_sources'}}) {
+                if (pf::authentication::getAuthenticationSource($src)->{'type'} eq 'Email') {
+                    $self->source(pf::authentication::getAuthenticationSource('sponsor'));
+                    $found = $TRUE;
+                    last;
+                }
+            }
+        }
+    }
+    if (!$found) {
+        $logger->error("Not able to find any source, verify your configuration");
+    }
 }
 
 =head1 AUTHOR

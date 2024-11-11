@@ -137,6 +137,19 @@ Builder for the source using the source_id attribute
 
 sub _build_source {
     my ($self) = @_;
+    my $logger = get_logger;
+    $self->_sub_build_source;
+}
+
+=head2 _sub_build_source
+
+Sub function to return the source id associated to the module or the first who match in the connection profile
+
+=cut
+
+sub _sub_build_source {
+    my ($self) = @_;
+    my $logger = get_logger;
     $self->source(pf::authentication::getAuthenticationSource($self->{source_id}));
 }
 
