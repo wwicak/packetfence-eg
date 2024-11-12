@@ -43,6 +43,7 @@ For a list of compatibility related changes see the <<PacketFence_Upgrade_Guide.
 
  * Don't generate all the time a mac address when using the GenericVPN switch module (#8270)
  * Add missing parameters for authentication rule match (#8306)
+ * Fixed the dynamic role assignment issue for Aruba switch modules (#8331)
 
 === Security Fixes
 
