@@ -1304,7 +1304,7 @@ func (c Cert) New() (types.Info, error) {
 		Information.Status = http.StatusConflict
 		return Information, errors.New(dbError)
 	}
-
+	log.LoggerWContext(c.Ctx).Info("Certificate " + c.Cn + " has been generated from profile " + prof.Name + " and sign by " + prof.Ca.Cn)
 	c.DB.Select("id, cn, mail, street_address, organisation, organisational_unit, country, state, locality, postal_code, cert, profile_id, profile_name, ca_name, ca_id, valid_until, serial_number, dns_names, ip_addresses").Where("cn = ? AND profile_name = ?", c.Cn, prof.Name).First(&newcertdb)
 	Information.Entries = newcertdb
 	Information.Serial = SerialNumber.String()
