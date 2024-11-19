@@ -45,6 +45,7 @@ For a list of compatibility related changes see the <<PacketFence_Upgrade_Guide.
  * Add missing parameters for authentication rule match (#8306)
  * Fixed the dynamic role assignment issue for Aruba switch modules (#8331)
  * Show only registered nodes on status page (#8382)
+ * Fixed pfperl-api restart (#8391)
 
 === Security Fixes
 
