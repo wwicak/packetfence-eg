@@ -36,6 +36,8 @@ our %types = (
     'Cisco::WLC_2500' => 'Cisco::Cisco_WLC_AireOS',
     'Cisco::WLC_4400' => 'Cisco::Cisco_WLC_AireOS',
     'Cisco::WLC_5500' => 'Cisco::Cisco_WLC_AireOS',
+    'Cisco::WiSM' => 'Cisco::Cisco_WLC_AireOS',
+    'Cisco::WiSM2' => 'Cisco::Cisco_WLC_AireOS',
 );
 
 my $cs = pf::IniFiles->new(-file => $file, -allowempty => 1);
