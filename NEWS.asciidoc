@@ -29,6 +29,7 @@ For a list of compatibility related changes see the <<PacketFence_Upgrade_Guide.
 
  * Upgrade to FreeRADIUS 3.2.6 (#8290)
  * NTLM Auth multi-threaded machine-accounts (#8335)
+ * OS based Cisco Switch Modules (#8365)
 
 === Enhancements
 
@@ -40,7 +41,7 @@ For a list of compatibility related changes see the <<PacketFence_Upgrade_Guide.
  * Custom taggable LDAP Explorer attributes (e6435e8)
  * Performance improvements on pfacct (#8369)
  * Added Aruba-MPSK-password attribute (#6957)
- * OS based Cisco Switch Modules (#8365)
+ * Reduce time to flush the RADIUS log (#8397)
 
 === Bug Fixes
 
