@@ -51,6 +51,7 @@ For a list of compatibility related changes see the <<PacketFence_Upgrade_Guide.
  * Fixed pfperl-api restart (#8391)
  * Fixed deauthOnPrevious with webauth (#7319)
  * Fixed IP resolution on LDAP SSL verification (#6808)
+ * Fixed NAS-Port to ifIndex on Comware v7 switches (#8062) @bmp96
 
 === Security Fixes
 
