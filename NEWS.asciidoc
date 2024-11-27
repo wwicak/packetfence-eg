@@ -40,6 +40,7 @@ For a list of compatibility related changes see the <<PacketFence_Upgrade_Guide.
  * Custom taggable LDAP Explorer attributes (e6435e8)
  * Performance improvements on pfacct (#8369)
  * Added Aruba-MPSK-password attribute (#6957)
+ * OS based Cisco Switch Modules (#8365)
 
 === Bug Fixes
 
