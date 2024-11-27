@@ -37,6 +37,7 @@ For a list of compatibility related changes see the <<PacketFence_Upgrade_Guide.
  * Move SSO options to Firewall SSO from Advanced (#8303)
  * PKI - Multiple certificate with same Common Name (#8310)
  * Improved Ruckus Unbound DPSK (#8315)
+ * Improved Docker images (#8337)
  * Support for case-insensitive LDAP Explorer attributes (#8366) @E-ThanG
  * Custom taggable LDAP Explorer attributes (e6435e8)
  * Performance improvements on pfacct (#8369)
